@@ -1,0 +1,38 @@
+<h1 [style.color]="'aqua'" [ngStyle]="{'text-align':'center'}" >My summary</h1>
+<div  [ngStyle]="{'display':'flex'}">
+  <div><img [ngStyle]="{'width':'200px','height':'250px'}" src="{{path}}"></div>
+  <div >
+    <ul>
+      <li [style.margin-top]="'20px'">First name:  {{info.name}}</li>
+
+      <li [style.margin-top]="'20px'">Last name:  {{info.surname}}</li>
+
+      <li [style.margin-top]="'20px'">Date of Birth:  {{info.dataBirth|date:"dd-MM-yyyy"}}</li>
+
+      <li [style.margin-top]="'20px'">Phone number:  {{info.tel}}</li>
+
+      <li [style.margin-top]="'20px'">Address:  {{info.address}}</li>
+
+      <li [style.margin-top]="'20px'">Desired salary:  {{info.salary}}</li>
+
+    </ul>
+  </div>
+</div>
+<div  class="accordion" id="accordionPanelsStayOpenExample" [ngStyle]="{'width':'500px'}">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+        {{Exp.text}}
+      </button>
+    </h2>
+    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+      <div class="accordion-body">
+        <strong>{{Exp.work}}</strong>
+      </div>
+    </div>
+  </div>
+  <div [style.margin-top]="'20px'" [ngStyle]="{'border':'2px solid blue'}" >
+  <span [style.margin-right]="'20px'"  class="badge text-bg-primary">{{Exp.skill1}}</span>
+  <span [style.margin-right]="'20px'"  class="badge text-bg-info">{{Exp.skill2}}</span>
+    <span [style.margin-right]="'20px'"  class="badge text-bg-primary">{{Exp.skill}}</span>
+  </div>
