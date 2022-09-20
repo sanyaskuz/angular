@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {infoSummary} from "./summary.info";
-import {experience} from "./workExperience";
 import localeRu from '@angular/common/locales/ru';
 import {registerLocaleData} from '@angular/common';
 registerLocaleData(localeRu,"ru");
+import {ExperienceWorkService} from "./experience-work.service";
+import {MySkillsService} from "../my-skills.service";
 
 @Component({
   selector: 'app-summary',
@@ -20,17 +21,14 @@ info:infoSummary = {
   dataBirth:new Date(1995,8,24),
 }
   path = '/assets/img/img.jpeg';
-Exp: experience = {
-  work:'kitchener',
-  text:'Work Experience',
-  skill:'kitchener',
-  skill1:'Js',
-  skill2:'Html'
-}
+  experience:string[]=[];
+  skill:string[]=[]
 
-  constructor() { }
+  constructor(private experienceWork:ExperienceWorkService,private skills:MySkillsService) { }
 
   ngOnInit(): void {
+    this.experience = this.experienceWork.getExperience();
+    this.skill=this.skills.getSkills();
   }
 
 }
